@@ -1,0 +1,13 @@
+.content {
+    display: flex;
+    gap: 50px;
+}
+
+.catName {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: crimson;
+    color: white;
+    border-radius: 10px;
+}

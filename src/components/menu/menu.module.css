@@ -1,0 +1,47 @@
+.container {
+    flex: 2;
+}
+
+.title {
+    margin: 50px 0 30px 0;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category {
+    padding: 3px 10px;
+    width: max-content;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+}
+
+.desc {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.author {
+    color: rgb(86, 85, 85);
+    font-weight: 600;
+}
+.date {
+    color: gray;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        display: none;
+    }
+}

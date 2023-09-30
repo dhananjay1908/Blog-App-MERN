@@ -1,0 +1,43 @@
+.link {
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 20px;
+    height: 16px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--textColor);
+}
+
+.menu {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-size: 32px;
+    background-color: var(--bg);
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .link {
+        display: none;
+    }
+}
