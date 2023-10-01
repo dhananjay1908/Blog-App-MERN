@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from "./authlink.module.css"
+import { AuthContext } from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom';
 
 const AuthLink = () => {
-  const status = "notauthenticated"
+  const {user, setUser} = useContext(AuthContext);
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+  const handleSignOut = () => {
+    setUser(null);
+    navigate("/login")
+  }
+
   return (
     <>
       {
-        status === "notauthenticated" ? <a href="/login" className={styles.link}>Login</a> :
+        user===null ? <a href="/login" className={styles.link}>Login</a> :
           <>
-            <a href="/create" className={styles.link}>Create</a>
-            <span className={styles.link}>Logout</span>
+            <a href="/write" className={styles.link}>Create</a>
+            <span className={styles.link} onClick={handleSignOut}>Logout</span>
           </>
       }
       <div className={styles.hamburger} onClick={()=>setOpen(!open)}>
@@ -25,10 +33,10 @@ const AuthLink = () => {
           <a href="/">Contact</a>
           <a href="/">About</a>
           {
-            status === "notauthenticated" ? <a href="/login">Login</a> :
+            user===null ? <a href="/login">Login</a> :
               <>
-                <a href="/create">Create</a>
-                <span>Logout</span>
+                <a href="/write">Create</a>
+                <span onClick={handleSignOut}>Logout</span>
               </>
           }
         </div>
